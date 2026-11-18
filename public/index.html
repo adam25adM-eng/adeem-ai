@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101114">
+  <title>Adeem AI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="logo">A</div><div><b>Adeem AI</b><small>مساعدك الشخصي</small></div></div>
+      <button class="new-chat" id="newChat">＋ محادثة جديدة</button>
+      <div class="side-label">المحادثات</div>
+      <div id="chatList" class="chat-list"></div>
+      <div class="side-bottom">
+        <button class="side-action" id="settingsOpen">⚙️ الإعدادات والتعليمات</button>
+        <span class="muted tiny">نسخة أولية • مشروعك الخاص</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuBtn" aria-label="القائمة">☰</button>
+        <div class="top-title"><span class="status-dot"></span> Adeem AI</div>
+        <button class="icon-btn" id="settingsTop" aria-label="الإعدادات">⚙️</button>
+      </header>
+
+      <section class="conversation" id="conversation">
+        <div class="welcome" id="welcome">
+          <div class="welcome-logo">A</div>
+          <h1>مرحبا، أنا <span>Adeem AI</span></h1>
+          <p>المساعد الذكي ديالك. سولني على أي موضوع نقدر نعاونك فيه.</p>
+          <div class="suggestions">
+            <button class="suggestion">شرح ليا شي حاجة بطريقة بسيطة</button>
+            <button class="suggestion">عاونّي نتعلم البرمجة</button>
+            <button class="suggestion">عطيني أفكار لمشروع جديد</button>
+          </div>
+        </div>
+        <div id="messages" class="messages"></div>
+      </section>
+
+      <form class="composer-wrap" id="chatForm">
+        <div class="composer">
+          <textarea id="prompt" rows="1" placeholder="كتب رسالتك لـ Adeem AI..." maxlength="8000"></textarea>
+          <button class="send" id="sendBtn" type="submit" aria-label="إرسال">➤</button>
+        </div>
+        <div class="disclaimer">Adeem AI يقدر يغلط؛ تحقق من المعلومات المهمة. ما تشاركش كلمات السر أو المعلومات الحساسة.</div>
+      </form>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="settingsModal">
+    <section class="modal">
+      <div class="modal-head"><div><h2>إعدادات Adeem AI</h2><p>نتا اللي كتحدد الشخصية والتعليمات.</p></div><button class="icon-btn" id="settingsClose">✕</button></div>
+      <label>اسم المساعد<input id="assistantName" value="Adeem AI" maxlength="40"></label>
+      <label>طريقة الكلام
+        <select id="tone"><option value="دارجة مغربية بسيطة">دارجة مغربية بسيطة</option><option value="العربية الفصحى">العربية الفصحى</option><option value="حسب لغة المستخدم">حسب لغة المستخدم</option></select>
+      </label>
+      <label>التعليمات والقواعد الخاصة بك<textarea id="instructions" rows="6" placeholder="مثال: جاوب باختصار، واستعمل أمثلة..."></textarea></label>
+      <div class="settings-note">التعليمات والمحادثات كيتخزنو فهاد المتصفح على جهازك. ما تحطش معلومات سرية.</div>
+      <div class="modal-actions"><button class="danger" id="clearData">مسح المحادثات</button><button class="primary" id="saveSettings">حفظ الإعدادات</button></div>
+    </section>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
